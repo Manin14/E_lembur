@@ -8,22 +8,15 @@ use Auth;
 
 class LoginController extends Controller
 {
-    //belum jalan
+    //belum jalan, pasword tinker harus bcrypt
     public function postlogin (Request $request){
       //dd($request->all()); 
       
       if (Auth::attempt($request->only('email','password'))){
-          return redirect('HalamanDepan.beranda');
+          return redirect('/beranda');
       }
      
-    // $data = [
-    //     'email' => session('email'),
-    //     'password' => session('password'),
-    // ];
-
-    // if (Auth::attempt($data)){
-    //            return redirect('/beranda');
-    //        }
+    
       return redirect('login');
     }
 
@@ -31,6 +24,6 @@ class LoginController extends Controller
     public function logout (Request $request){
         Auth::logout();
 
-        return redirect('/');
+        return redirect('login');
       }
 }

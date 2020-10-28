@@ -17,6 +17,18 @@ class BerandaController extends Controller
         return view ('HalamanDepan.beranda');
     }
 
+    public function halamansatu()
+    {
+        //halaman satu
+        return view ('Halaman.halaman-satu');
+    }
+
+    public function halamandua()
+    {
+        //halaman dua
+        return view ('Halaman.halaman-dua');
+    }
+
     /**
      * Show the form for creating a new resource.
      *

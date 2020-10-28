@@ -21,14 +21,31 @@ Route::get('/', function () {
 //     return view('beranda');
 // });
 
-//route beranda dengan  controller
-Route::get('/beranda','BerandaController@index');
+//level admin bisa akses semua halaman
+Route::group(['middleware' => ['auth','CekLevel:admin']], function (){
+    //route beranda dengan  controller
+    Route::get('/beranda','BerandaController@index');
+
+    Route::get('/halaman-satu','BerandaController@halamansatu')->name('halaman-satu');
+    Route::get('/halaman-dua','BerandaController@halamandua')->name('halaman-dua');
+});
+
+
+//level user hanya bisa akses beranda dan halaman satu
+Route::group(['middleware' => ['auth','CekLevel:admin,user']], function (){
+    //route beranda dengan  controller
+    Route::get('/beranda','BerandaController@index');
+
+    Route::get('/halaman-satu','BerandaController@halamansatu')->name('halaman-satu');
+   
+});
+
 
 
 //route login
 Route::get('/login', function () {
     return view('Pengguna.Login');
-});
+})->name('login');
 
 //route login k belum jalan beranda
 Route::post('/postlogin', 'LoginController@postlogin')->name('postlogin');
