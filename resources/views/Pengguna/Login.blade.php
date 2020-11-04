@@ -16,6 +16,9 @@
   <link rel="stylesheet" href="{{ asset('AdminLTE/dist/css/adminlte.min.css') }}">
 </head>
 <body class="hold-transition login-page">
+
+      
+
 <div class="login-box">
   <div class="login-logo">
     <a href="#"><b>Admin</b>LTE</a>
@@ -48,10 +51,10 @@
         <div class="row">
           <div class="col-8">
             <div class="icheck-primary">
-              <input type="checkbox" id="remember">
+              <!-- <input type="checkbox" id="remember">
               <label for="remember">
                 Remember Me
-              </label>
+              </label> -->
             </div>
           </div>
           <!-- /.col -->
@@ -64,8 +67,8 @@
 
       <div class="social-auth-links text-center mb-3">
         <p>- OR -</p>
-        <a href="#" class="btn btn-block btn-primary">
-          <i class="fab fa-facebook mr-2"></i> Sign in using Facebook
+        <a href="{{ url('/')}}" class="btn btn-block btn-primary">
+           Registrasi 
         </a>
         <a href="#" class="btn btn-block btn-danger">
           <i class="fab fa-google-plus mr-2"></i> Sign in using Google+
@@ -74,17 +77,24 @@
       <!-- /.social-auth-links -->
 
       <p class="mb-1">
-        <a href="forgot-password.html">I forgot my password</a>
+        <!-- <a href="forgot-password.html">I forgot my password</a> -->
       </p>
       <p class="mb-0">
-        <a href="register.html" class="text-center">Register a new membership</a>
+        <!-- <a href="register.html" class="text-center">Register a new membership</a> -->
       </p>
     </div>
     <!-- /.login-card-body -->
   </div>
 </div>
-<!-- /.login-box -->
-
+         <!-- /.login-box -->
+         <div class="col-md-3-mt-12">
+          	 @if ($message = Session::get('success'))
+		          <div class="alert alert-success alert-block">
+		           <button type="button" class="close" data-dismiss="alert">×</button> 
+		          <strong>{{ $message }}</strong>
+		         </div>
+		         @endif
+          </div>
 <!-- jQuery -->
 <script src="{{ asset('AdminLTE//plugins/jquery/jquery.min.js') }}"></script>
 <!-- Bootstrap 4 -->

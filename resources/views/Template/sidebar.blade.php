@@ -13,7 +13,7 @@
           <img src="{{ asset('GambarTaro/taro.jpg')}}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">{{ auth()->user()->name }}</a>
+          <a href="#" class="d-block">{{ auth()->user()->name }} , {{ auth()->user()->level }} </a>
         </div>
       </div>
 
@@ -43,11 +43,20 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
-            
+
+            <!-- @if (auth()->user()->level == "pemilik")
+            <li class="nav-item">
+                <a href="{{ route('registrasi') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Halaman Registrasi</p>
+                </a>
+              </li>
+              @endif -->
+
               <li class="nav-item">
                 <a href="{{ route('halaman-satu') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Halaman 1</p>
+                  <p>Halaman 1 form lembur</p>
                 </a>
               </li>
 
@@ -55,7 +64,7 @@
               <li class="nav-item">
                 <a href="{{ route('halaman-dua') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Halaman 2</p>
+                  <p>Halaman 2 accept ajuan lembur / Supervisor</p>
                 </a>
               </li>
               @endif

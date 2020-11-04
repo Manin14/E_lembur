@@ -25,12 +25,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">halaman satu  </h1>
+            <h1 class="m-0">Form Pengajuan Lembur  </h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Starter Page</li>
+              <!-- <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">Starter Page</li> -->
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -39,7 +39,60 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- /.content-header -->
 
     <!-- Main content -->
-     <h1> halaman satu </h1>
+    <div class="container">
+        <div class="col-lg-8">
+            <div class="page-header">
+                  
+            <!-- <h1> halaman satu form lembur </h1> -->
+       
+            <form>
+             <div class="form-group row">
+                <label for="inputPassword" class="col-sm-2 col-form-label">Nama</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="inputPassword">
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label for="inputPassword" class="col-sm-2 col-form-label">Jenis Kelamin </label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="inputPassword">
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label for="inputPassword" class="col-sm-2 col-form-label">Divisi </label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="inputPassword">
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label for="inputPassword" class="col-sm-2 col-form-label"> Usia </label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="inputPassword">
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label for="inputPassword" class="col-sm-2 col-form-label"></label>
+                <div class="col-sm-10">
+                <a href="{{ url('/')}}" class="btn btn-block btn-primary">
+                  Submit
+                </a>
+                </div>
+              </div>
+
+
+               
+
+            </form>
+               
+            </div>
+        </div>
+     </div>
+     
+     
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->

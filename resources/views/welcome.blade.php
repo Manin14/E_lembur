@@ -8,6 +8,8 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        
+        @include('Template.head')
 
         <!-- Styles -->
         <style>
@@ -61,39 +63,85 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
+
+            .hitung{
+            z-index: 999;
+            left: -420px;
+            top: -160px;
+                 }
+           
         </style>
     </head>
     <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
+    <br> <br>
+   
+      <div class="container">
+        <div class="row">
+             <div class="col-md-6">
+              <h1 align="center"> Buat Akun </h1>
 
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
+              <small align="center" id="emailHelp" class="form-text text-muted">Jika Sudah Punya Akun Silahkan Login </small>  
+                    <form method="POST" action="{{ url('reg') }}">
+                    {{ csrf_field() }}
 
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Nama</label>
+                        <input type="text" name="name" class="form-control" id="exampleInputNama" aria-describedby="emailHelp" required>
+                      
+                    </div>
+                    <label for="exampleInputEmail1">Level</label>
+                      <select class="custom-select" name="level">
+                            <option selected value="user">Karyawan/ User </option>
+                            <option value="hrd">HRD</option>
+                            <option value="supervisor">Supervisor</option>
+                            <option value="admin">Admin</option> 
+                        </select> 
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Email address</label>
+                        <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+                        
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Password</label>
+                        <input type="password" name="password" class="form-control" id="exampleInputPassword1" required>
+                        <small id="emailHelp" class="form-text text-muted">Minimal length 8 </small>
+                    </div>
+                  
+                    <button type="submit" class="btn btn-primary">Buat Akun</button>
+                    <br>
+                    <br>
+                    <br>
+                            
+                   </form>
+             </div>
+
+             <div class="col-md-6">
+               <h1 align="center"> Login </h1> <br> <br>
+                
+                <div class="container">
+                      <div class="content">
+                    <img src=" {{ asset('GambarTaro/tps_food.jpg')}}" alt="">
+                      <div class="title m-b-md">
+                          Laravel
+                      </div>
+
+                      <div class="links">
+                          <div class="social-auth-links text-center mb-3">
+                              <a href="{{ url('login') }}"  class="btn btn-block btn-primary" >Login </a>
+                          </div> 
+                      </div>
                 </div>
+              
+                
             </div>
+             </div>
         </div>
+      </div>
     </body>
+
+    <!-- REQUIRED SCRIPTS -->
+    @include('Template.script')
+
+
 </html>

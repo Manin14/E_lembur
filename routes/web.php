@@ -15,6 +15,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+   //route regis
+    //Route::get('/registrasi','BerandaController@registrasi')->name('registrasi');
+    
+    //route reg awal halaman, inseert data akun 
+    Route::post('reg', 'BerandaController@store'); //method post buat insert data
+    //Route::post('beranda', 'BerandaController@store'); //method post buat insert data
 
 //route beranda tanpa controller
 // Route::get('/beranda', function () {
@@ -26,6 +32,9 @@ Route::group(['middleware' => ['auth','CekLevel:admin']], function (){
     //route beranda dengan  controller
     Route::get('/beranda','BerandaController@index');
 
+    //route regis
+   // Route::get('/registrasi','BerandaController@registrasi')->name('registrasi');
+
     Route::get('/halaman-satu','BerandaController@halamansatu')->name('halaman-satu');
     Route::get('/halaman-dua','BerandaController@halamandua')->name('halaman-dua');
 });
@@ -35,6 +44,11 @@ Route::group(['middleware' => ['auth','CekLevel:admin']], function (){
 Route::group(['middleware' => ['auth','CekLevel:admin,user']], function (){
     //route beranda dengan  controller
     Route::get('/beranda','BerandaController@index');
+
+    //route regis
+   // Route::get('/registrasi','BerandaController@registrasi')->name('registrasi');
+
+    
 
     Route::get('/halaman-satu','BerandaController@halamansatu')->name('halaman-satu');
    

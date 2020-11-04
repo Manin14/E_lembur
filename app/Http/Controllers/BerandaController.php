@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\User;
 
 use Illuminate\Http\Request;
 
@@ -29,6 +30,12 @@ class BerandaController extends Controller
         return view ('Halaman.halaman-dua');
     }
 
+    public function registrasi()
+    {
+        //halaman dua
+        return view ('Registrasi.regis');
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -47,7 +54,22 @@ class BerandaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+       // dd($request);
+        $akun =  new User;
+        $akun->name = $request->name;
+        $akun->level = $request->level;
+        $akun->email = $request->email;
+        $akun->password = bcrypt($request->password);
+        
+              
+
+        $akun->save();
+        
+
+        // // setelah data disimpan, kembalikan lagi ke view
+         return redirect('login')->with(['success' => 'Berhasil Buat Akun, Silahkan Login']);
+
     }
 
     /**
